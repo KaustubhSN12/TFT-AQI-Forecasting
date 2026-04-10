@@ -1,8 +1,7 @@
-streamlit
-torch
+torch==2.0.1
 numpy
 pandas
 scikit-learn
 matplotlib
 plotly
-pickle5
+streamlit
