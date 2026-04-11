@@ -18,6 +18,9 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import warnings
 warnings.filterwarnings("ignore")
+# ADD AFTER LINE 12
+import requests
+import io
 
 # ─────────────────────────────────────────────────────────────
 # PAGE CONFIG
@@ -539,16 +542,34 @@ def sec_hdr(text, num=""):
 # ─────────────────────────────────────────────────────────────
 # LOADERS
 # ─────────────────────────────────────────────────────────────
+#@st.cache_resource(show_spinner="INITIALIZING SCALER MATRIX…")
+#def load_scalers():
+#    with open(SCALER_PATH,'rb') as f: return pickle.load(f)
 @st.cache_resource(show_spinner="INITIALIZING SCALER MATRIX…")
 def load_scalers():
-    with open(SCALER_PATH,'rb') as f: return pickle.load(f)
+    response = requests.get(SCALER_PATH)
+    response.raise_for_status()
+    return pickle.load(io.BytesIO(response.content))
+
+
+# @st.cache_resource(show_spinner="LOADING NEURAL ARCHITECTURE…")
+# def load_model_weights(n_feat,hidden,n_heads,n_layers,dropout,pred_len):
+#     device=torch.device("cuda" if torch.cuda.is_available() else "cpu")
+#     m=TFTv3(input_size=n_feat,hidden=hidden,pred_len=pred_len,
+#              n_heads=n_heads,n_layers=n_layers,dropout=dropout)
+#     state=torch.load(MODEL_PATH,map_location=device)
+#     m.load_state_dict(state)
+#     return m.to(device).eval(),device
 
 @st.cache_resource(show_spinner="LOADING NEURAL ARCHITECTURE…")
 def load_model_weights(n_feat,hidden,n_heads,n_layers,dropout,pred_len):
-    device=torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device=torch.device("cpu")
     m=TFTv3(input_size=n_feat,hidden=hidden,pred_len=pred_len,
              n_heads=n_heads,n_layers=n_layers,dropout=dropout)
-    state=torch.load(MODEL_PATH,map_location=device)
+    response=requests.get(MODEL_PATH)
+    response.raise_for_status()
+    buffer=io.BytesIO(response.content)
+    state=torch.load(buffer,map_location=device)
     m.load_state_dict(state)
     return m.to(device).eval(),device
 
