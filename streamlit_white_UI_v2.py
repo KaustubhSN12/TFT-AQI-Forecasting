@@ -412,9 +412,10 @@ hr {{ border-color:{T['border']}!important; margin:1rem 0!important; }}
 # ─────────────────────────────────────────────────────────────
 # PATHS
 # ─────────────────────────────────────────────────────────────
-DATA_PATH   = r"https://github.com/KaustubhSN12/TFT-AQI-Forecasting/blob/main/dataset/val_tft_realistic_continuous.csv"
-SCALER_PATH = r"https://github.com/KaustubhSN12/TFT-AQI-Forecasting/blob/main/models/scalers_v3.pkl"
-MODEL_PATH  = r"https://github.com/KaustubhSN12/TFT-AQI-Forecasting/blob/main/models/best_tft_v3_model_20.1.pth"
+# CORRECT — use raw links
+DATA_PATH   = "https://raw.githubusercontent.com/KaustubhSN12/TFT-AQI-Forecasting/main/dataset/val_tft_realistic_continuous.csv"
+SCALER_PATH = "https://raw.githubusercontent.com/KaustubhSN12/TFT-AQI-Forecasting/main/models/scalers_v3.pkl"
+MODEL_PATH  = "https://raw.githubusercontent.com/KaustubhSN12/TFT-AQI-Forecasting/main/models/best_tft_v3_model_20.1.pth"
 
 
 # ─────────────────────────────────────────────────────────────
