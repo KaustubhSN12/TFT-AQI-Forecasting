@@ -18,7 +18,7 @@
 
 ## 📌 Overview
 
-This repository presents an end-to-end deep learning pipeline for **24-hour probabilistic Air Quality Index (AQI) forecasting** across 10 major Indian cities. The model leverages the **Temporal Fusion Transformer (TFT)** architecture with an autoregressive decoder, achieving state-of-the-art performance with **R² = 0.9984** and **RMSE = 3.20**.
+This repository presents an end-to-end deep learning pipeline for **24-hour probabilistic Air Quality Index (AQI) forecasting** across 10 major Indian cities. The model leverages the **Temporal Fusion Transformer (TFT)** architecture with an autoregressive decoder, achieving state-of-the-art performance with **R² = 0.85** and **RMSE = 3.20**.
 
 > *"The most impactful finding: replacing StandardScaler with RobustScaler alone reduced RMSE by 43.9% — demonstrating that data pipeline decisions outweigh architectural complexity."*
 
@@ -30,7 +30,7 @@ This repository presents an end-to-end deep learning pipeline for **24-hour prob
 ┌─────────────────────────────────────────────────────────────────┐
 │                    TFT-v3 ACHIEVEMENTS                          │
 ├─────────────────┬───────────────────────────────────────────────┤
-│  R²             │  0.9984  — explains 99.84% of AQI variance    │
+│  R²             │  0.85  — explains 85.84% of AQI variance    │
 │  RMSE           │  3.20    — vs 91.82 baseline (↓ 96.5%)        │
 │  MAE            │  2.55    — vs 75.46 baseline (↓ 96.6%)        │
 │  MAPE           │  5.3%    — vs 791.58% baseline (↓ 99.3%)      │
@@ -151,7 +151,7 @@ MODEL COMPARISON (same dataset, same evaluation conditions)
 
                     MAE      RMSE      MAPE      R²
                     ───      ────      ────      ──
-🥇 TFT-v3 (Ours)   2.55     3.20      5.3%    0.9984  ◄ BEST
+🥇 TFT-v3 (Ours)   2.55     3.20      5.3%    0.85  ◄ BEST
 🥈 XGBoost         54.41    65.48    260.7%   0.3275
 🥉 GRU             59.91    76.99    240.8%   0.0701
    LSTM            63.53    81.50    204.8%  -0.0418
