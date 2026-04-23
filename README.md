@@ -10,7 +10,7 @@
 
 **Temporal Fusion Transformer v3 · Autoregressive Multi-Quantile Prediction · 10 Indian Cities**
 
-[🚀 Live Demo]([#deployment](https://24tas-aqiforecast.streamlit.app/)) · [📄 Research Paper](#research-paper) · [📊 Results](#results) · [🛠️ Installation](#installation)
+[🚀 Live Demo](https://24tas-aqiforecast.streamlit.app/) · [📄 Research Paper](#research-paper) · [📊 Results](#results) · [🛠️ Installation](#installation)
 
 </div>
 
